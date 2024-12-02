@@ -1,0 +1,24 @@
+{
+    "database_type": "PostgreSQL",
+    "default_schema": "public",
+    "table_name": "users",
+    "list_column": ["id", "name", "email", "birth_date"],
+    "cleansing": [
+      {
+        "column_name": "email",
+        "type": "cleantp_remove_pattern",
+        "characters": "[@.]"
+      },
+      {
+        "column_name": "name",
+        "type": "cleantp_remove_pattern",
+        "characters": "[., ]"
+      },
+      {
+        "column_name": "birth_date",
+        "type": "cleantp_format_datetime",
+        "format_date": "YYYY-MM-DD"
+      }
+    ]
+  }
+  
